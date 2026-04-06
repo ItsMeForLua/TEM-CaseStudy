@@ -1,0 +1,60 @@
+\documentclass[man]{apa7}
+\usepackage[american]{babel}
+\usepackage{csquotes}
+\usepackage[style=apa, backend=biber]{biblatex}
+\addbibresource{references.bib}
+
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=blue, citecolor=blue}
+
+\usepackage{amsmath, amssymb, graphicx}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\DeclareRobustCommand{\code}[1]{%
+	\begingroup
+	\setlength{\fboxsep}{2pt}%
+	\colorbox{gray!15}{\ttfamily\small #1}%
+	\endgroup
+}
+\widowpenalty=10000
+\clubpenalty=10000
+
+\shorttitle{Transmission Electron Microscopy Analysis}
+\begin{document}
+	\title{Vectorial Dimensional Analysis of TEM in Racket}
+	\author{Andrew D. France}
+	\authorsaffiliations{Tarrant County College}
+	\keywords{Scheme, Bragg's Law, Trigonometry, TEM, Biotech, Mathematics, Racket, Computer Science, Vector Dimensional Analysis, Case Study, Computational Chemistry, Molecular Biology}
+	\abstract{
+	A method of vectorial dimensional analysis is implemented in a dialect of \textit{Scheme} called \textit{Racket} as a proof of concept. Prioritizing unit-first algorithms over traditional formula-first numerical methods by treating geometric relationships, such as Bragg's Law, as structural invariants is more mathematically reliable than the alternative. The method of vectorial dimensional analysis provides a sanity check embedded directly within the framework itself, rather than as a numerical calculation done post-hoc.
+	}
+	\maketitle
+	Understanding the mechanical functions of biological macromolecules requires methods for the accurate mapping of their 3D geometry. As researchers Amit Singer and Fred J. Sigworth describe, the goal of structural biology is: ``...to determine their 3D structure—that is, the position of each atom in the machine—in order to try to understand the way in which the machine works'' \parencite{Singer2020}. To achieve this, the biotechnology industry requires reliable methods for computationally calculating the distances between atoms in biological macromolecules. However, traditional computational methods for the geometric analysis of these structures often rely on formula-based algorithms that can, in theory, introduce dimensional errors. To address this weakness, we analyzed the 1GZX oxy T-state haemoglobin \parencite{Paoli1996} using a method of Vectorial Dimensional Analysis, to suggest that strict dimensional analysis can provide a more reliable framework for computational chemistry and biology.
+	
+	Before any computational analysis can begin, geometric data must first be extracted from experimental diffraction techniques. While Bragg's Law is commonly associated with X-ray crystallography, it equally applies to electron diffraction techniques such as TEM, where electrons scattering off crystalline atomic planes produce diffraction patterns that reveal interatomic distances, with measurements that must satisfy the geometric constraints defined by Bragg's Law. However, traditional formula-first algorithms lack structural invariants by treating these relationships as naked numbers; consequently hiding dimensional assumptions which can lead to computational errors. Drawing a structural analogy from materials science, Stephen W. Tsai and Jose Daniel D. Melo demonstrated that in the design of laminates, invariants, such as the trace of a stiffness matrix, exist as material properties independent of ply orientation: ``The concept of invariance was proven useful in the design of laminates because the invariants are not affected by ply orientation.'' \parencite{Tsai2014}. 
+	
+	This case study extends invariant theory to computational crystallography. Just as Tsai and Melo (2014) utilized mathematical invariants to evaluate composite laminates independent of physical rotation, this study posits that computational methods for electron diffraction must enforce similar geometric invariants during TEM coordinate transformations. To achieve this, a functional data structure is implemented in Racket to evaluate crystallographic trigonometry using a strict method of vector dimensional analysis.
+	
+	In computational crystallography, structural invariants refer to fundamental geometric and dimensional properties that must hold true regardless of the reference frame or unit system. This includes relationships like the Law of Cosines: \(c^2 = a^2 + b^2 - 2ab \cos\theta\), which dictates that atomic bond angles remain rigid regardless of spatial rotation. Computationally, it requires strict dimensional homogeneity: $[L] + [L] = [L]$, to ensure that physical quantities are not combined in ways that contradict their physical reality. Unlike traditional methods, these structural invariants function as sanity checks that are inherent to the vector dimensional analysis framework itself.
+	
+	The necessity of treating spatial direction as a strict dimensional property is not a new concern in mathematics. In 1968, the physicist H.E. Huntley argued that traditional dimensional analysis was fundamentally incomplete because it treated all lengths as interchangeable, and thus, he proposed a system called ``directed dimensions'' where lengths on orthogonal axes ($L_x, L_y$) are intrinsically incompatible \parencite{Huntley1968}. Despite this theoretical framework, modern computational pipelines frequently ignore this incompatibility, stripping vectors down to naked numbers before processing. 
+	
+	To ensure the geometric integrity of molecular models, this paper develops a dimensional quantity system in \textit{Racket}, extends invariant theory to crystallographic trigonometry, and demonstrates how structural constraints as vectors can prevent dimensional errors in computational biology and chemistry.
+	
+	\section{Method}
+	This section details the methodology used to calculate crystallographic trigonometry without compromising dimensional integrity. First, the mathematical framework establishes the intrinsic dimensional constraints of electron diffraction. Second, the computational implementation details the functional Racket engine built to programmatically enforce those physical constraints.
+	\subsection{Mathematical Framework}
+	To mathematically normalize their failure envelopes, Tsai and Melo (2014) were required to artificially project their physical strain vectors onto a dimensionless unit circle. However, in computational crystallography, artificial normalization of vectors is unnecessary. The dimensional constraints of electron diffraction are inherently bound to the unit circle through the trigonometric ratios of Bragg's Law: \(n\lambda = 2d \sin\theta\). Therefore, the computational architecture does not need to manufacture a dimensional anchor; it simply needs to preserve the intrinsic structural invariants from the moment interatomic coordinates are parsed, and remain consistent during the entire transformation.
+	
+	\subsection{Computational Implementation}
+	
+	
+	
+	
+	 
+	
+	
+
+	\printbibliography
+\end{document}
