@@ -47,6 +47,8 @@
 	\subsection{Mathematical Framework}
 	To mathematically normalize their failure envelopes, Tsai and Melo (2014) were required to artificially project their physical strain vectors onto a dimensionless unit circle. However, in computational crystallography, artificial normalization of vectors is unnecessary. The dimensional constraints of electron diffraction are inherently bound to the unit circle through the trigonometric ratios of Bragg's Law: \(n\lambda = 2d \sin\theta\). Therefore, the computational architecture does not need to manufacture a dimensional anchor; it simply needs to preserve the intrinsic structural invariants from the moment interatomic coordinates are parsed, and remain consistent during the entire transformation.
 	
+	Because electron diffraction imposes strict geometric realities, the orthogonal Cartesian axes extracted from the Protein Data Bank must be treated as independent, directed dimensions (Huntley, 1968). A formula-first approach to the algebraic dot product strips these dimensions away prematurely, assuming spatial interchangeability. Instead, a structure-first model must enforce a dimensional barrier; preventing the addition of an X-length to a Y-length while explicitly recognizing the dot product: \(\vec{u} \cdot \vec{v}\), as a geometric phase change. Through this phase change, the multiplication of homologous directed vectors: \(L_x \times L_x\), mathematically collapses them into a pure, directionless scalar magnitude.
+	
 	\subsection{Computational Implementation}
 	
 	
